@@ -20,8 +20,8 @@ namespace MagazinPizza
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             var slist = (Comanda)BindingContext;
-            //slist. = DateTime.UtcNow;
-           // await App.Database.SaveComandaAsync(slist);
+            slist.NumarTelefon=edit1.Text.ToString();
+           await App.Database.SaveComandaAsync(slist);
             await Navigation.PopAsync();
         }
         async void OnDeleteButtonClicked(object sender, EventArgs e)
@@ -29,6 +29,25 @@ namespace MagazinPizza
             var slist = (Comanda)BindingContext;
             await App.Database.DeleteComandaAsync(slist);
             await Navigation.PopAsync();
+        }
+
+
+
+        async void OnChooseButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PaginaProdus((Comanda) this.BindingContext)
+            {
+                BindingContext = new Produse()
+            });
+
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            var shopl = (Comanda)BindingContext;
+
+            listView.ItemsSource = await App.Database.GetListaProduseAsync(shopl.ComandaId);
         }
 
     }

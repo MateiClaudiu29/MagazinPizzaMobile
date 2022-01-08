@@ -10,12 +10,12 @@
         </StackLayout>
     </ContentPage.Content>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add Shopping List" Clicked="OnComandaAddedClicked" />
+        <ToolbarItem Text="Adauga detalii Comanda" Clicked="OnComandaAddedClicked" />
     </ContentPage.ToolbarItems>
     <ListView x:Name="listView" Margin="20" ItemSelected="OnListViewItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding ClientComanda}" Detail="{Binding TotalComanda}" />
+                <TextCell Text="{Binding DescriereComanda}" Detail="{Binding NumarTelefon}" />
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MagazinPizza.PaginaProdus">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Editor x:Name="nume" Placeholder="Introdu Nume Produs" Margin="20" Text="{Binding NumeProdus}" HeightRequest="50" />
+            <Editor x:Name="pret" Placeholder="Suma Produs" Margin="20" Text="{Binding PretProdus}" HeightRequest="50" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Introdu" Clicked="OnSaveButtonClicked" />
+                <Button Grid.Column="1" Text="Delete" Clicked="OnDeleteButtonClicked"/>
+                <Button Grid.Column="2" Text="Adauga" Clicked="OnListViewItemSelected"/>
+                <ListView Grid.Row="1" x:Name="listView" Margin="20">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding NumeProdus}"  Detail="{Binding PretProdus}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

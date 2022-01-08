@@ -17,8 +17,7 @@ namespace MagazinPizza
                 if (database == null)
                 {
                     database = new
-                   ComandaDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.
-                   LocalApplicationData), "Comanda.db3"));
+                   ComandaDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Comanda.db3"));
                 }
                 return database;
             }

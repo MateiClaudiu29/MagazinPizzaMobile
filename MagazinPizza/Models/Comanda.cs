@@ -7,10 +7,9 @@ namespace MagazinPizza.Models
 {
     public class Comanda
     {
-        [PrimaryKey, AutoIncrement]
-        public int ComandaId { get; set; }
-        public int ClientComanda { get; set; }
-        public int TotalComanda { get; set; }
+        [PrimaryKey, AutoIncrement] public int ComandaId { get; set; }
+        public string DescriereComanda { get; set; }
+        public string NumarTelefon { get; set; }
 
     }
 }
